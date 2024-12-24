@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz Protection des Données</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .answer {
+            margin: 5px 0;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quizz sur la Protection des Données</h1>
+
+    <form id="quizForm">
+        <div class="question">
+            <h2>1. Qu’est-ce qu’une donnée personnelle ?</h2>
+            <label class="answer"><input type="radio" name="q1" value="A"> A. Une donnée accessible librement sur Internet.</label><br>
+            <label class="answer"><input type="radio" name="q1" value="B"> B. Toute information se rapportant à une personne physique identifiée ou identifiable.</label><br>
+            <label class="answer"><input type="radio" name="q1" value="C"> C. Une donnée anonyme, qui ne permet pas d'identifier une personne.</label><br>
+            <label class="answer"><input type="radio" name="q1" value="D"> D. Une donnée partagée uniquement avec des entreprises partenaires.</label>
+        </div>
+
+        <div class="question">
+            <h2>2. Qu’est-ce qu’un traitement de données personnelles ?</h2>
+            <label class="answer"><input type="radio" name="q2" value="A"> A. La simple collecte de données sans aucune action supplémentaire.</label><br>
+            <label class="answer"><input type="radio" name="q2" value="B"> B. Une suppression de données personnelles après leur collecte.</label><br>
+            <label class="answer"><input type="radio" name="q2" value="C"> C. Une vente de données personnelles à des tiers.</label><br>
+            <label class="answer"><input type="radio" name="q2" value="D"> D. Une opération, ou ensemble d’opérations, portant sur des données personnelles, quel que soit le procédé utilisé (collecte, enregistrement ...).</label>
+        </div>
+
+        <div class="question">
+            <h2>3. Quels sont les grands principes relatifs au traitement des données à caractère personnel ?</h2>
+            <label class="answer"><input type="radio" name="q3" value="A"> A. Transparence, licéité, loyauté, minimisation des données, exactitude, limitation de la conservation, sécurité et limitation des finalités.</label><br>
+            <label class="answer"><input type="radio" name="q3" value="B"> B. Garanties suffisantes, confidentialité et pseudonymisation.</label><br>
+            <label class="answer"><input type="radio" name="q3" value="C"> C. Curiosité, publicité et liberté.</label><br>
+            <label class="answer"><input type="radio" name="q3" value="D"> D. Les données peuvent être utilisées pour toutes sortes de finalités, sans restriction.</label>
+        </div>
+
+        <div class="question">
+            <h2>4. Certaines données historiques doivent-elles être conservées et archivées ?</h2>
+            <label class="answer"><input type="radio" name="q4" value="true"> Vrai</label><br>
+            <label class="answer"><input type="radio" name="q4" value="false"> Faux</label>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">Soumettre</button>
+    </form>
+
+    <script>
+        function submitQuiz() {
+            const answers = new FormData(document.getElementById('quizForm'));
+            let result = '';
+
+            for (let [question, answer] of answers.entries()) {
+                result += `${question}: ${answer}\n`;
+            }
+
+            alert(`Vos réponses:\n${result}`);
+        }
+    </script>
+</body>
+</html>
